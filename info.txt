@@ -1,0 +1,56 @@
+nest generate library common
+npm i @nestjs/mongoose mongoose
+npm i @nestjs/config
+npm i class-validator class-transformer
+npm i nestjs-pino pino-http
+npm i pino-pretty
+
+nest generate module database -p common
+npm i joi
+
+// generare microserviciu
+nest g app reservations
+
+nest g resource reservations
+
+
+
+------Docker------
+docker build ../../ -f Dockerfile -t sleepr_reservations
+docker run sleepr_reservations
+docker-compose up
+
+
+
+//Auth app
+nest g app auth
+nest g module users
+nest g controller users
+nest g service users
+
+npm i @nestjs/passport
+npm install passport-local
+npm i -D @types/passport-local
+npm i @nestjs/jwt passport-jwt
+npm i -D @types/passport-jwt
+
+npm i bcrypt
+npm i -D @types/bcrypt
+npm i bcryptjs express
+npm i -D @types/bcryptjs
+npm i cookie-parser
+npm i -D @types/cookie-parser
+
+// necesara pentru comunicarea intre microservicii
+npm i @nestjs/microservices
+
+nest g app payments
+
+npm i stripe
+
+nest g app
+
+
+npm i nodemailer
+npm i -D @types/nodemailer
+
